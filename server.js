@@ -31,7 +31,7 @@ var storage = multer.diskStorage({
 var upload = multer({
     storage:storage
 })
-//###################Database : Mongodb#######################
+//###################Database : Mongodb######################
 
 const mongoClient = require("mongodb").MongoClient
 const mongoUrl = "mongodb://localhost:27017"

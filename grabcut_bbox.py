@@ -8,7 +8,8 @@ import os
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", type=str,
-	default=os.path.sep.join(["images", "adrian.jpg"]),
+	# TODO: image input
+	default=os.path.sep.join(["images", "adrian2.jpg"]),
 	help="path to input image that we'll apply GrabCut to")
 ap.add_argument("-c", "--iter", type=int, default=10,
 	help="# of GrabCut iterations (larger value => slower runtime)")

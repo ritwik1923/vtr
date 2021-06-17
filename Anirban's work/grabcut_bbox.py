@@ -123,7 +123,7 @@ def ExtractFace(img_name):
 
     img_name = img_name[::-1]
     pos = img_name.find('.')
-    img_name = img_name[pos:]
+    img_name = img_name[pos+1:]
     img_name = img_name[::-1]
     apply_new_background(mask3d, foreground, (x, x1, y, y1),
                          path2+img_name)  # Also add this line

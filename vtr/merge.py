@@ -1,20 +1,36 @@
 from PIL import Image
 
 # Opening the primary image (used in background)
-img1 = Image.open(r"./images/bg.jpg").convert("RGBA")
+bg = Image.open(r"./images/bg.jpg").convert("RGBA")
+print(bg.size)
+# bg = bg.resize()
+bw , bh = bg.size
 # https://stackoverflow.com/questions/31273592/valueerror-bad-transparency-mask-when-pasting-one-image-onto-another-with-pyt
 # Opening the secondary image (overlay image)
-# img2 = Image.open(r"./images/rtest1.jpg").convert("RGBA")
-img2 = Image.open(r"./images/kalam.jpg").convert("RGBA")
-img3 = Image.open(r"./images/kalam.jpg").convert("RGBA")
+# face = Image.open(r"./images/rtest1.jpg").convert("RGBA")
+face = Image.open(r"./faces/vkr.png").convert("RGBA")
+print(face.size)
 
-# Pasting img2 image on top of img1
+fw , fh = face.size
+
+cloth = Image.open(r"./cloths/3.jpg").convert("RGBA")
+print(cloth.size)
+# cloth1 = cloth.resize((257,485))
+# cloth1.save('2_r.jpg')
+# cloth1 = Image.open(r"./cloths/2_r.jpg")
+
+cw , ch = cloth.size
+# Pasting face image on top of bg
 # starting at coordinates (0, 0)
-img1.paste(img2, (200,200), mask = img2)
-img1.paste(img3, (400,400), mask = img3)
+
+fx = int(bw/2 - fw/2)
+cx = int(bw/2 - cw/2)
+
+bg.paste(cloth, (cx,200), mask = cloth)
+bg.paste(face, (fx,30), mask = face)
 
 # Displaying the image
-img1.show()
+bg.show()
 '''
 TODO: issue!
 

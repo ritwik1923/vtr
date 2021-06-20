@@ -60,7 +60,7 @@ function base64_encode(file) {
 app.post("/users", upload.single('picture'),(req,res) => {
     var img = fs.readFileSync(req.file.path)
     // var encode_image = img.toString('base64')
-    // console.log(pictureName)
+    console.log(pictureName)
     var base64str = base64_encode(req.file.path)
     console.log(base64str.substring(0,30));
     //define a JSON object for image
@@ -74,7 +74,7 @@ app.post("/users", upload.single('picture'),(req,res) => {
         maxy: 70,
         image:base64str 
 
-        // new Buffer(encode_image,'base64')
+    //     // new Buffer(encode_image,'base64')
     };
     //inserting to mongodb to the database
     // db.collection("users").insertOne(finalImg,(err,result) => {

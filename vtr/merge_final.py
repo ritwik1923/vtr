@@ -15,10 +15,12 @@ issue: 1. not saving with jpg formate
 from PIL import Image
 import cv2
 
-the_cloth = "./cloths/DM333.png"
-the_face = "./faces/rwk._face.jpg"
+# the_cloth = "./cloths/DM333.png"
+the_cloth = "./cloths/66.png"
+# the_face = "./faces/rwk._face.jpg"
 # the_face = "./faces/vkr.png"
-# the_face = "./faces/myimage1._face.jpg"
+# the_face = "./faces/vkr.png"
+the_face = "./faces/myimage1._face.jpg"
 # the function
 class VTR:
     
@@ -38,7 +40,7 @@ class VTR:
         bw , bh = bg.size
         # opening the the_face
         face = Image.open(self.the_face).convert("RGBA")
-        face = face.resize((int(ff),int(ff*1.7)),Image.ANTIALIAS)
+        face = face.resize((int(ff*0.5),int(ff*1.7*0.5)),Image.ANTIALIAS)
         print(face.size)
         # print(face.filename)
         # face dimensions

@@ -7,7 +7,7 @@ import os
 from utils import show, apply_new_background, find_largest_contour  # Addition 1
 
 
-def ExtractFace(img_name):
+def ExtractFace(img_name,gender):
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
     # img_name = input("Enter the image path : ")
@@ -43,8 +43,12 @@ def ExtractFace(img_name):
     y1 = y+h
     # print(x, y, x1, y1)
     h_upper = int((h*50)/100)
-    h_lower = int((h*25)/100)
-    w = int((w*10)/100)
+    if gender=='M':
+        h_lower = int((h*25)/100)
+        w = int((w*10)/100)
+    else:
+        h_lower = int((h*30)/100)
+        w = int((w*30)/100)
     x -= w
     x = max(0, x)
     y = y-h_upper
@@ -134,5 +138,7 @@ def ExtractFace(img_name):
 path1 = input("Path of folder of images :")
 path2 = input("Path of folder of saved faces:")
 listing = os.listdir(path1)
-for file in listing:
-	ExtractFace(file)
+print(listing)
+gender = ['F','F','M','F','M','M','M','M','M']
+for i,file in enumerate(listing):
+	ExtractFace(file,gender[i])

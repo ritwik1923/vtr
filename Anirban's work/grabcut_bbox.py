@@ -7,14 +7,14 @@ import os
 from utils import show, apply_new_background, find_largest_contour  # Addition 1
 
 
-def ExtractFace(img_name,gender):
+def ExtractFace(img_name, gender):
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
     # img_name = input("Enter the image path : ")
     ap.add_argument("-i", "--image", type=str,
                     default=os.path.sep.join([path1 + img_name]),
                     help="path to input image that we'll apply GrabCut to")
-    ap.add_argument("-c", "--iter", type=int, default=10,
+    ap.add_argument("-c", "--iter", type=int, default=30,
                     help="# of GrabCut iterations (larger value => slower runtime)")
     args = vars(ap.parse_args())
     # load the input image from disk and then allocate memory for the
@@ -43,11 +43,11 @@ def ExtractFace(img_name,gender):
     y1 = y+h
     # print(x, y, x1, y1)
     h_upper = int((h*50)/100)
-    if gender=='M':
-        h_lower = int((h*25)/100)
+    if gender == 'M':
+        h_lower = int((h*35)/100)
         w = int((w*10)/100)
     else:
-        h_lower = int((h*30)/100)
+        h_lower = int((h*40)/100)
         w = int((w*30)/100)
     x -= w
     x = max(0, x)
@@ -65,7 +65,8 @@ def ExtractFace(img_name,gender):
     (mask, bgModel, fgModel) = cv2.grabCut(image, mask, rect, bgModel,
                                            fgModel, iterCount=args["iter"], mode=cv2.GC_INIT_WITH_RECT)
     end = time.time()
-    print("[INFO] applying GrabCut took {:.2f} seconds".format(end - start))
+    print("[INFO] applying GrabCut took {:.2f} seconds".format(end - start),end="---")
+    print(img_name)
     # the output mask has for possible output values, marking each pixel
     # in the mask as (1) definite background, (2) definite foreground,
     # (3) probable background, and (4) probable foreground
@@ -138,7 +139,13 @@ def ExtractFace(img_name,gender):
 path1 = input("Path of folder of images :")
 path2 = input("Path of folder of saved faces:")
 listing = os.listdir(path1)
-print(listing)
-gender = ['F','F','M','F','M','M','M','M','M']
-for i,file in enumerate(listing):
-	ExtractFace(file,gender[i])
+# print(listing)
+gender = []
+for file in listing:
+    if file[0] == 'b':
+        gender.append('M')
+    else:
+        gender.append('F')
+# print(gender)
+for i, file in enumerate(listing):
+    ExtractFace(file, gender[i])

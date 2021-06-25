@@ -93,15 +93,15 @@ function vtr(cloth, face) {
 
   return new Promise((resolve) => {
       setTimeout(() => {
-        try {
+        // try {
             // throw new Error('error!');
             resolve(dataToSend);
-          } catch (e) {
+          // } catch (e) {
 
-            console.error("taking longer time");
-          }
+          //   console.error("taking longer time");
+          // }
         
-    }, 5000);
+    }, 8000);
 }).catch(function(error) {
     
     resolve("longtime");
@@ -123,14 +123,15 @@ async function postUser() {
     face = face.replace("\\", "/");
 
     console.log("face name: ", face);
-    try{
+    // cout<<"arnab is sexy";
     var store_final_image = await vtr(cloth, face);
+    if(store_final_image != "longtime") {
     var base64str1 = base64_encode(store_final_image);
     status = "good"
     console.log("store: ", store_final_image);
     delfile(req.file.path)
     }
-    catch(e) {
+    else {
         //error handling logic
         store_final_image = req.file.path
         base64str1 = base64str
@@ -143,10 +144,10 @@ async function postUser() {
       contentType: "image/png",
       path: store_final_image,
       status: status,
-      minx: 7,
-      miny: 7,
-      maxx: 70,
-      maxy: 70,
+      // minx: 7,
+      // miny: 7,
+      // maxx: 70,
+      // maxy: 70,
       image:base64str1
 
       // new Buffer(encode_image,'base64')

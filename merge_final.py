@@ -50,7 +50,7 @@ def merge_face_and_background(the_cloth,the_face):
     cc = ff*2.5
     # Opening the primary image (used in background)
     bg = Image.open(r"./images/bg.jpg").convert("RGBA")
-    bg = bg.resize((int(cc+20),int(cc*2.5)),Image.ANTIALIAS)
+    bg = bg.resize((int(cc+20),int(cc*2)),Image.ANTIALIAS)
     # print(bg.size)
 
     # bg dimensions
@@ -78,10 +78,10 @@ def merge_face_and_background(the_cloth,the_face):
     cx = int(bw/2 - cw/2)
 
     bg.paste(face, (fx,0), mask = face)
-    bg.paste(cloth, (int(cx),int(fh-ff*.25)), mask = cloth)
+    bg.paste(cloth, (int(cx),int(fh-ff*.29)), mask = cloth)
 
     # Displaying the image
-    bg.show()
+    # bg.show()
     # Saving the image
     # bg = bg.convert('RGBA').save("./result/vtrvk.jpg")
     r_store = f"./result/{ getImageName( the_face)}.png"

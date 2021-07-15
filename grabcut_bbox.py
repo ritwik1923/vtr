@@ -155,8 +155,8 @@ path2 = "./faces"
 # path1 = "./img"
 # listing = os.listdir(path1)
 # img = "/undefined-1625031518381.jpeg"
-img = "/Priyasi Mandal (passport photo).jpg"
-print(f"output: {ExtractFace(path1+img, 'M')}") 
+# img = "/Priyasi Mandal (passport photo).jpg"
+# print(f"output: {ExtractFace(path1+img, 'M')}") 
 # res = 
 # print(res)
 # sys.stdout.flush()

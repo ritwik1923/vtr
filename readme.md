@@ -4,6 +4,34 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/ritwik1923/vtr.git)
 
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+
+
 ## About The Project
 
 
@@ -34,11 +62,25 @@ Dillinger uses a number of open source projects to work properly:
 
 ## Installation
 
+### Cloning
 
 ```sh
 git clone https://github.com/ritwik1923/vtr.git
-# kindly download all required module
 ```
+
+### Install all required python module and run flask server
+```sh
+pip install -r requirements.txt 
+cd vtr-python
+python server.py
+```
+
+### To run the app
+```sh
+cd vtr-app
+bash flrun.sh # For app make kindly run emulator or on any ios or android device
+```
+
 
 ## Contributing
 
@@ -53,3 +95,11 @@ Contributions are what make the open source community such an amazing place to b
 ## Contributor
 
 [![Build Status](https://avatars.githubusercontent.com/ritwik1923?v=2&s=46)](https://github.com/ritwik1923)        [![Build Status](https://avatars.githubusercontent.com/Anirban2001?v=2&s=46)](https://github.com/Anirban2001)    [![Build Status](https://avatars.githubusercontent.com/arijit200?v=2&s=46)](https://github.com/arijit200)    [![Build Status](https://avatars.githubusercontent.com/Cypher0900?v=2&s=46)](https://github.com/Cypher0900)
+
+
+<!-- CONTACT -->
+## Contact
+
+Ritwik Mandal - [@Linkdin](https://www.linkedin.com/in/ritwik-mandal-3487101a5) - ritwikmandalsubho@gmail.com
+
+

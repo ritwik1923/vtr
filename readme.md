@@ -34,11 +34,25 @@ Dillinger uses a number of open source projects to work properly:
 
 ## Installation
 
+### Cloning
 
 ```sh
 git clone https://github.com/ritwik1923/vtr.git
-# kindly download all required module
 ```
+
+### Install all required python module and run flask server
+```sh
+pip install -r requirements.txt 
+cd vtr-python
+python server.py
+```
+
+### to run the app
+```sh
+cd vtr-app
+bash flrun.sh # For app make kindly run emulator or on any ios or android device
+```
+
 
 ## Contributing
 

@@ -1,0 +1,9 @@
+Werkzeug==2.0.1
+numpy==1.21.0
+opencv_python==4.5.2.54
+Flask_RESTful==0.3.9
+Flask==2.0.1
+jsonpickle==2.0.0
+pymongo==3.11.4
+Pillow==8.3.1
+torch==1.9.0

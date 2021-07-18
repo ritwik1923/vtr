@@ -3,9 +3,14 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/ritwik1923/vtr.git)
 
-
-
 ### In this Project will take image from the user and superimpose his/ her face on the cloth image as if he/she is wearing it. Help user to experience trial room, virtually.
+
+
+## Video Sample of project
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/63177644/126055172-047f9fe0-1bbe-4633-9fae-dfc94c98e820.gif">
+</p>
+
 
 ## Features
 

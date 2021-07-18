@@ -4,6 +4,34 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/ritwik1923/vtr.git)
 
 
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+
+
 ## About The Project
 
 
@@ -47,10 +75,17 @@ cd vtr-python
 python server.py
 ```
 
+<<<<<<< HEAD
 ### to run the app
 ```sh
 cd vtr-app
 bash flrun.sh # For app make kindly run emulator or on any ios or android device
+=======
+### To run the app
+```sh
+cd vtr-app
+bash flrun.sh # For app kindly make sure to run emulator or on any ios or android device
+>>>>>>> 61b55d7c5c79c9d5db5999b664c94bf0ccf69820
 ```
 
 
@@ -67,3 +102,11 @@ Contributions are what make the open source community such an amazing place to b
 ## Contributor
 
 [![Build Status](https://avatars.githubusercontent.com/ritwik1923?v=2&s=46)](https://github.com/ritwik1923)        [![Build Status](https://avatars.githubusercontent.com/Anirban2001?v=2&s=46)](https://github.com/Anirban2001)    [![Build Status](https://avatars.githubusercontent.com/arijit200?v=2&s=46)](https://github.com/arijit200)    [![Build Status](https://avatars.githubusercontent.com/Cypher0900?v=2&s=46)](https://github.com/Cypher0900)
+
+
+<!-- CONTACT -->
+## Contact
+
+Ritwik Mandal - [@Linkdin](https://www.linkedin.com/in/ritwik-mandal-3487101a5) - ritwikmandalsubho@gmail.com
+
+

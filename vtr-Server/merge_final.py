@@ -18,8 +18,7 @@ import sys
 import asyncio
 import random
 import time
-# print(f"1st: {sys.argv[1]}, 2nd:{sys.argv[2]}")
-# print(f"1st: {sys.argv[0]}")
+
 from grabcut_bbox import ExtractFace
 
 # the_cloth = "./cloths/DM333.png"

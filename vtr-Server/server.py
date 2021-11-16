@@ -1,26 +1,13 @@
 from random import randint
-from typing import BinaryIO
-from flask import Flask, render_template, request, jsonify, Response, send_file
-from flask_restful import reqparse, abort, Api, Resource
-from PIL import Image
-import pymongo
+from flask import Flask, request, jsonify, send_file
+from flask_restful import Api
 from pymongo import MongoClient
-import json
 import os
-import io
+import shutil
+
 import sys
 import numpy as np
 import cv2
-import base64
-import jsonpickle
-import numpy as np
-import cv2
-import time
-from io import StringIO
-from io import BytesIO
-from PIL import Image, ImageDraw
-
-from werkzeug.wrappers import response
 
 
 # sys.path.insert(0, "./vtr")
@@ -36,11 +23,6 @@ def random_with_N_digits(n):
     return randint(range_start, range_end)
 
 
-def trycatch(fn, str):
-    try:
-        print(f"{str} done: {BinaryIO(fn)}")
-    except Exception as e:
-        print(f"no {str}")
 ############################################## THE REAL DEAL ###############################################
 
 
@@ -53,10 +35,27 @@ def home():
     }
     return jsonify(respond)
 
+# empty a folder
 
-@app.route('/userPicPost', methods=['POST','GET'])
+
+def emptyfolder(location, dir):
+    path = location + dir
+
+    if os.path.exists(path):
+        # path
+        path = os.path.join(location, dir)
+        # removing directory
+        shutil.rmtree(path)
+        # if not os.path.exists(path):
+        os.makedirs(path)
+
+
+@app.route('/userPicPost', methods=['POST', 'GET'])
 def userPicPost():
     if request.method == 'POST':
+        emptyfolder('./', 'result')
+        emptyfolder('./', 'faces')
+        emptyfolder('./', 'Upic')
         savepath = f"./Upic/saveimage-{random_with_N_digits(16)}.jpg"
         print(request.files, file=sys.stderr)
         clothid = request.form['clothid']
@@ -67,22 +66,21 @@ def userPicPost():
 
         cv2.imwrite(savepath, img)
         # TODO: vtr merge fn here
-        
+
         the_cloth = getclothsdb(clothid)
         print(f"cloth: {the_cloth}")
         if the_cloth == -1:
             return jsonify({"result": "failed"})
-        result = vtr.merge_face_and_background(the_cloth,savepath)
+        result = vtr.merge_face_and_background(the_cloth, savepath)
         print(
             f"\n\n\npic: {result}\n\n\n")
 
         return result
-       
+
     if request.method == 'GET':
         arg = request.args['result']
         print(f"arg get: {arg}")
-        return send_file(arg,mimetype ='image/png')
-
+        return send_file(arg, mimetype='image/png')
 
 
 # connecting server with mongodb
@@ -109,12 +107,11 @@ def getclothsdb(id):
 
     try:
         file = cloth['cloth']
-  
+
         return file
     except Exception as e:
         print(f"cant save image {e}")
         return -1
-
 
 
 # get  cloths from data base
@@ -122,7 +119,6 @@ def getclothsdb(id):
 def getcloths():
     # if request['post']
     args = request.args
-
 
     print(args['id'])  # For debugging
     try:
@@ -154,6 +150,8 @@ def getallcloths():
         return jsonify({"result": "failed"})
 
 # add cloth to data base
+
+
 @app.route('/addcloth', methods=['POST'])
 def addcloth():
     try:
@@ -174,6 +172,7 @@ def addcloth():
         return jsonify({"result": "done"})
     except Exception as e:
         return jsonify({"result": "failed"})
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=3333)

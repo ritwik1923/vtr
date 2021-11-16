@@ -53,9 +53,10 @@ def emptyfolder(location, dir):
 @app.route('/userPicPost', methods=['POST', 'GET'])
 def userPicPost():
     if request.method == 'POST':
-        # emptyfolder('./', 'result')
-        # emptyfolder('./', 'faces')
-        # emptyfolder('./', 'Upic')
+
+        emptyfolder('./', 'result')
+        emptyfolder('./', 'faces')
+        emptyfolder('./', 'Upic')
         savepath = f"./Upic/saveimage-{random_with_N_digits(16)}.jpg"
         print(request.files, file=sys.stderr)
         clothid = request.form['clothid']

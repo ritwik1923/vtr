@@ -4,7 +4,7 @@ import argparse
 import time
 import cv2
 import os
-from utils import show, apply_new_background, find_largest_contour  # Addition 1
+from utils import  apply_new_background # Addition 1
 
 
 def ExtractFace(img_name, gender):

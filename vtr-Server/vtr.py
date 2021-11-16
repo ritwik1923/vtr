@@ -1,5 +1,4 @@
-import sys
-# sys.path.insert(0, "./vtr/")
+
 import merge_final as vt
 the_cloth = "./cloths/Formal_Shirt.png"
 path1 = "./images"

@@ -1,0 +1,1 @@
+ mongoexport --db VTR --collection cloths.men --out "./vtr-Server/db/db.json"

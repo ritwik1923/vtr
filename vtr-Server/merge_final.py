@@ -13,11 +13,7 @@ issue: 1. not saving with jpg formate
 
 """
 from PIL import Image
-# import cv2
-import sys
-import asyncio
-import random
-import time
+
 
 from grabcut_bbox import ExtractFace
 

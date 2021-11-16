@@ -1,24 +1,20 @@
 from random import randint
 from typing import BinaryIO
-from flask import Flask, render_template, request, jsonify, Response, send_file
-from flask_restful import reqparse, abort, Api, Resource
-from PIL import Image
-import pymongo
+from flask import Flask, request, jsonify, send_file
+from flask_restful import Api
 from pymongo import MongoClient
-import json
 import os
-import io
+import shutil
+
+from PIL import Image                                                                                
+
 import sys
 import numpy as np
 import cv2
-import base64
-import jsonpickle
+
 import numpy as np
 import cv2
-import time
-from io import StringIO
-from io import BytesIO
-from PIL import Image, ImageDraw
+
 
 from werkzeug.wrappers import response
 
@@ -53,10 +49,25 @@ def home():
     }
     return jsonify(respond)
 
+# empty a folder
+def emptyfolder(location,dir) :
+    path = location + dir
+
+    if os.path.exists(path):
+        # location
+
+        # path
+        path = os.path.join(location, dir)
+
+        # removing directory
+        shutil.rmtree(path)
+        # if not os.path.exists(path):
+        os.makedirs(path)
 
 @app.route('/userPicPost', methods=['POST','GET'])
 def userPicPost():
     if request.method == 'POST':
+        emptyfolder('./','result')
         savepath = f"./Upic/saveimage-{random_with_N_digits(16)}.jpg"
         print(request.files, file=sys.stderr)
         clothid = request.form['clothid']
@@ -75,13 +86,15 @@ def userPicPost():
         result = vtr.merge_face_and_background(the_cloth,savepath)
         print(
             f"\n\n\npic: {result}\n\n\n")
-
+        
+        emptyfolder('./','faces')
+        emptyfolder('./','Upic')
         return result
        
     if request.method == 'GET':
         arg = request.args['result']
         print(f"arg get: {arg}")
-        return send_file(arg,mimetype ='image/png')
+        return send_file(arg,mimetype ='image/png') 
 
 
 

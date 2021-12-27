@@ -35,8 +35,7 @@
 ## About The Project
 
 
-### In this Project will take image from the user and superimpose his/ her face on the cloth image as if he/she is wearing it. Help user to experience trial room, virtually.
-
+### I created an Android application that allows a person to virtually try on clothing at any time and from any location. The primary goal of this project is to develop a feature similar to Lenskart's Virtual Eyewear Trial. The app also includes a feature that allows the user to use custom images from their phone's gallery or the front camera.
 
 
 <p align="center">

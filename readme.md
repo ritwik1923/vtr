@@ -35,7 +35,11 @@
 ## About The Project
 
 
-### I created an Android application that allows a person to virtually try on clothing at any time and from any location. The primary goal of this project is to develop a feature similar to Lenskart's Virtual Eyewear Trial. The app also includes a feature that allows the user to use custom images from their phone's gallery or the front camera.
+<!-- ### -->
+- Build a cross-platform application which provides the experience of Virtual Trial Room to the user by using his/her
+images from the phone Gallery or using Front Camera.
+- Designed Back-end app service using Flask and used Mongodb to store information of cloths.
+- Build UI using Flutter.
 
 
 <p align="center">
